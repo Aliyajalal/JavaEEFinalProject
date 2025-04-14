@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Movies</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <main>
+        <div class="favorites-header">
+            <h1>Your Favorite Movies</h1>
+            <p>Total Favorites: <span th:text="${favorites.size()}"></span></p>
+        </div>
+
+        <div class="favorites-list">
+            <th:block th:each="movie : ${favorites}">
+                <div class="favorite-card">
+                    <img th:src="@{'https://image.tmdb.org/t/p/w500/' + ${movie.posterPath}}" class="favorite-poster" alt="Movie Poster" />
+                    <h2 th:text="${movie.title}" class="favorite-title"></h2>
+                    <p th:text="${movie.overview}" class="favorite-overview"></p>
+                    <p th:text="'Release Date: ' + ${movie.releaseDate}" class="favorite-release-date"></p>
+                    <p th:text="'Vote Average: ' + ${movie.voteAverage}" class="favorite-vote-average"></p>
+
+                    <form th:action="@{'/unfavorite/' + ${movie.id}}" method="post">
+                        <button type="submit" class="btn btn-remove">Remove from Favorites</button>
+                    </form>
+                </div>
+            </th:block>
+        </div>
+    </main>
+</body>
+</html>

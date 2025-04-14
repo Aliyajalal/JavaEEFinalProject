@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f2f2f2;
+    color: #333;
+}
+
+header, .favorites-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+}
+
+header a, .favorites-header a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #e50914;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+h1, h2 {
+    margin: 10px 0;
+}
+
+form {
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 300px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.btn-remove {
+    background-color: #555;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+img {
+    max-width: 200px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.favorite-card {
+    background: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.favorite-poster {
+    width: 200px;
+}
+
+.movie-details {
+    padding: 20px;
+}
+
+.movie-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.movie-poster {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: darksalmon;
+}

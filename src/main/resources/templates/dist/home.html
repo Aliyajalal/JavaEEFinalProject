@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Catalogue</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>🎬 Movie Catalogue</h1>
+        <nav>
+            <a href="/" class="nav-link">Home</a>
+            <a href="/favorites" class="nav-link">❤️ Favorites</a>
+        </nav>
+    </header>
+
+    <!-- Search Form -->
+    <section class="search-section">
+        <form action="/search" method="get" class="search-form">
+            <input type="text" name="query" placeholder="Search for a movie" required>
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <!-- Display Popular Movies -->
+    <section class="movies-section">
+        <h2>Popular Movies</h2>
+        <ul class="movie-list">
+            <th:block th:each="movie : ${movies}">
+                <li class="movie-card">
+                    <h3 th:text="${movie.title}"></h3>
+                    <p th:text="${movie.overview}"></p>
+                    <img th:src="'https://image.tmdb.org/t/p/w500/' + ${movie.poster_path}" alt="movie poster">
+                    <a th:href="@{/movie/{id}(id=${movie.id})}">Details</a>
+                    <form th:action="@{/favorite/{id}(id=${movie.id})}" method="post">
+                        <button type="submit">Add to Favorites</button>
+                    </form>
+                </li>
+            </th:block>
+        </ul>
+    </section>
+
+</body>
+</html>
