@@ -24,10 +24,15 @@
         </form>
     </section>
 
-    <!-- Display Popular Movies -->
     <section class="movies-section">
         <h2>Popular Movies</h2>
-        <ul class="movie-list">
+    
+        <!-- Display message if no movies found -->
+        <div th:if="${message}">
+            <p class="no-results-message" th:text="${message}"></p>
+        </div>
+    
+        <ul class="movie-list" th:if="${movies != null}">
             <th:block th:each="movie : ${movies}">
                 <li class="movie-card">
                     <h3 th:text="${movie.title}"></h3>
@@ -41,6 +46,6 @@
             </th:block>
         </ul>
     </section>
-
+    
 </body>
 </html>

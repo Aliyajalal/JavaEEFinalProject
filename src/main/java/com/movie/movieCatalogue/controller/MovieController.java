@@ -127,11 +127,15 @@ public class MovieController {
         }
     }
 
-    // Search for movies by title
     @GetMapping("/search")
     public String searchMovies(@RequestParam("query") String query, Model model) {
         try {
             List<Movie> movies = tmdbService.searchMovies(query);
+            
+            if (movies.isEmpty()) {
+                model.addAttribute("message", "No movies found for your search: " + query);
+            }
+            
             model.addAttribute("movies", movies);
             return "home";
         } catch (Exception e) {
@@ -139,4 +143,5 @@ public class MovieController {
             return "error";
         }
     }
+    
 }
